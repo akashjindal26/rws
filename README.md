@@ -1,6 +1,6 @@
 codingTest project step to run the codes.
 
-Below is the funcation which requires two parameters String ARRAY and Output ArrayType value ('alphaArray', 'numericArray', 'alphaNumericArray' ,'specialArray')
+Below is the function which requires two parameters String ARRAY and Output ArrayType value ('alphaArray', 'numericArray', 'alphaNumericArray' ,'specialArray')
 splitArray(mixedArray, ValueType)
 
 for example :-
