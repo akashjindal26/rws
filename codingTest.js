@@ -15,42 +15,29 @@ let specialArray = [];
 
 let filteredArray = [];
 function splitArray(mixedArray, ValueType) {
-    for (let i = 0; i < mixedArray.length; i++) {
-        switch (ValueType) {
-            case "numericArray":
-                // FOR INTEGER
-                var checkInt = /^[0-9]*\d$/;
-                if (checkInt.test(mixedArray[i])) {
-                    filteredArray.push(mixedArray[i])
-                }
-                break;
-            case "alphaArray":
-                //FOR ALPHABET
-                var checkAlpha = /^[a-zA-Z ]*$/;
-                if (checkAlpha.test(mixedArray[i])) {
-                    filteredArray.push(mixedArray[i])
-                }
-                break;
-            case "alphaNumericArray":
-                //FOR ALPHA_NUMERIC
-                var checkAlphaNumeric = /^(?=.*?\d)(?=.*?[a-zA-Z])[a-zA-Z\d]+$/;
-                if (checkAlphaNumeric.test(mixedArray[i])) {
-                    filteredArray.push(mixedArray[i])
-                }
-                break;
-            case "specialArray":
-                //FOR SPECIAL CHARACTER
-                var checkSpecialChar = /[!@#$%^&*(),.?":{}|<>]/;
-                if (checkSpecialChar.test(mixedArray[i])) {
-                    filteredArray.push(mixedArray[i])
-                }
-                break;
 
-            default:
-                filteredArray.push(mixedArray[i])
-                break;
-        }
+    switch (ValueType) {
+        case "numericArray":
+            // FOR INTEGER           
+            filteredArray = [...new Set(MIXED_ARRAY.filter(i => /^[0-9]*\d$/.test(i)))];
+            break;
+        case "alphaArray":
+            //FOR ALPHABET           
+            filteredArray = [...new Set(MIXED_ARRAY.filter(i => /^[a-zA-Z ]*$/.test(i)))];
+            break;
+        case "alphaNumericArray":
+            //FOR ALPHA_NUMERIC           
+            filteredArray = [...new Set(MIXED_ARRAY.filter(i => /^(?=.*?\d)(?=.*?[a-zA-Z])[a-zA-Z\d]+$/.test(i)))];
+            break;
+        case "specialArray":
+            //FOR SPECIAL CHARACTER           
+            filteredArray = [...new Set(MIXED_ARRAY.filter(i => /[!@#$%^&*(),.?":{}|<>]/.test(i)))];
+            break;
+        default:
+            filteredArray.push(mixedArray)
+            break;
     }
+    
 }
 
 // test cases
@@ -83,4 +70,3 @@ console.log(numericArray); // should print [123, "123", "005"] Done
 console.log(alphaNumericArray); // should print ["QWE34", "sha256", "XYZ5"] Done
 console.log(specialArray); // should print ["5&F", "TY$", "^^^"] Done
 */
-
